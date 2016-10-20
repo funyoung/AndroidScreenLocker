@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, LockerService.class);
                 startService(intent);
-                ToastUtil.showInfo(getApplicationContext(), "锁屏服务已启动，请先关闭屏幕然后再打开屏幕进行测试");
+                ToastUtil.showInfo(getApplicationContext(), getString(R.string.tv_lock_with_screen_on));
 
                 finish();
             }
@@ -48,5 +48,4 @@ public class MainActivity extends Activity {
             textView.setText(result);
         }
     }
-
 }
