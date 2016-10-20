@@ -28,6 +28,8 @@ dependencies {
 
     // explicitly depends on support-annotations library to make AS Analyze>Infer Nullity happy.
     // compile libraries.supportAnnotations
+//    compile "com.blankj:utilcode:$versions.utilcode"
+
     compile "com.android.support:appcompat-v7:$versions.supportLibs"
     compile "com.android.support:design:$versions.supportLibs"
     compile "com.android.support:support-annotations:$versions.supportLibs"

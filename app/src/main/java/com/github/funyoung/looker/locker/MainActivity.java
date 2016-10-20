@@ -8,9 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.funyoung.looker.R;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import com.github.funyoung.text.ArticleParser;
 
 /**
  * This Activity is only used to start {@link LockerService}, it's unnecessary for lock screen
@@ -45,18 +43,8 @@ public class MainActivity extends Activity {
     private void displayLearningText() {
         TextView textView = (TextView)findViewById(R.id.prompt_text);
         if (null != textView) {
-            try {
-                InputStreamReader inputReader = new InputStreamReader( getResources().openRawResource(R.raw.greatlearning));
-                BufferedReader bufReader = new BufferedReader(inputReader);
-                String line;
-                StringBuffer result = new StringBuffer();
-                while((line = bufReader.readLine()) != null) {
-                    result.append('\n').append(line).append('\n');
-                }
-                textView.setText(result);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            String result = ArticleParser.getInstance().parse(getResources().openRawResource(R.raw.greatlearning));
+            textView.setText(result);
         }
     }
 

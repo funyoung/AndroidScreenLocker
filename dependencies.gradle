@@ -59,6 +59,7 @@ ext.versions = [
         dexmaker     : '1.2',
         recyclerviewtools : '0.3.0',
         shimmer           : '1.4.0@aar',
+        utilcode          : '1.3.0',
 ]
 
 ext.gradlePlugins = [
