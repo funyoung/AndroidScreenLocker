@@ -60,6 +60,7 @@ ext.versions = [
         recyclerviewtools : '0.3.0',
         shimmer           : '1.4.0@aar',
         utilcode          : '1.3.0',
+        tastytoast        : '0.1.0',
 ]
 
 ext.gradlePlugins = [
@@ -165,4 +166,5 @@ ext.libraries = [
         dexmakerMockito         : "com.google.dexmaker:dexmaker-mockito:$versions.dexmaker",
         recyclerviewtools       : "com.eyeem.recyclerviewtools:library:$versions.recyclerviewtools",
         shimmer                 : "com.romainpiel.shimmer:library:$versions.shimmer",
+        tastytoast              : "com.sdsmdg.tastytoast:tastytoast:$versions.tastytoast",
 ]

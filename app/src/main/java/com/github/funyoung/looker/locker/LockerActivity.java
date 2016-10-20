@@ -9,10 +9,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.funyoung.looker.R;
 import com.github.funyoung.looker.util.TimeUtil;
+import com.github.funyoung.looker.util.ToastUtil;
 
 /**
  * if the screen is locked, this Activity will show.
@@ -52,7 +52,7 @@ public class LockerActivity extends Activity {
             public void onClick(View v) {
                 vibrate();
                 isLocked = false;
-                Toast.makeText(LockerActivity.this, "Screen is unlocked", Toast.LENGTH_SHORT).show();
+                ToastUtil.show(getApplicationContext(), "");
                 finish();
             }
         });

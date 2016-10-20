@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.funyoung.looker.R;
+import com.github.funyoung.looker.util.ToastUtil;
 import com.github.funyoung.text.ArticleParser;
 
 /**
@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, LockerService.class);
                 startService(intent);
-                Toast.makeText(MainActivity.this, "锁屏服务已启动，请先关闭屏幕然后再打开屏幕进行测试", Toast.LENGTH_SHORT).show();
+                ToastUtil.showInfo(getApplicationContext(), "锁屏服务已启动，请先关闭屏幕然后再打开屏幕进行测试");
 
                 finish();
             }
