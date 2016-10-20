@@ -9,9 +9,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.widget.TextView;
 
 import com.github.funyoung.looker.R;
 import com.github.funyoung.looker.util.Validator;
+import com.github.funyoung.text.ArticleParser;
 
 import java.util.List;
 

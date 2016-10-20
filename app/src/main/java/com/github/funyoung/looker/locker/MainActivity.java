@@ -43,7 +43,8 @@ public class MainActivity extends Activity {
     private void displayLearningText() {
         TextView textView = (TextView)findViewById(R.id.prompt_text);
         if (null != textView) {
-            String result = ArticleParser.getInstance().parse(getResources().openRawResource(R.raw.greatlearning));
+            ArticleParser parser = ArticleParser.getInstance();
+            String result = parser.parse(getResources().openRawResource(R.raw.greatlearning));
             textView.setText(result);
         }
     }

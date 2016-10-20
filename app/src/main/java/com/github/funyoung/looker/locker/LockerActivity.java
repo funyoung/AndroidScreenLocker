@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.github.funyoung.looker.R;
 import com.github.funyoung.looker.util.TimeUtil;
 import com.github.funyoung.looker.util.ToastUtil;
+import com.github.funyoung.text.ArticleCharModel;
+import com.github.funyoung.text.ArticleParser;
 
 /**
  * if the screen is locked, this Activity will show.
@@ -61,6 +63,15 @@ public class LockerActivity extends Activity {
             startService(new Intent(this, LockerService.class));
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        displayLearningText();
+    }
+
+    private void displayLearningText() {
+        TextView textView = (TextView)findViewById(R.id.prompt_text);
+        if (null != textView) {
+            ArticleCharModel model = ArticleParser.getInstance().getArticleCharModel();
+            textView.setText(model.indexInfo());
         }
     }
 

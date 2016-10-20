@@ -22,15 +22,17 @@ public class ArticleParser {
     private final ArticleCharModel articleCharModel = new ArticleCharModel();
     private final ArticleParagraphModel articleParagraphModel = new ArticleParagraphModel();
 
+    public ArticleCharModel getArticleCharModel() {
+        return articleCharModel;
+    }
+
     private ArticleParser(@NonNull String id) {
         reset(id);
     }
 
     private void reset(@NonNull String id) {
-        if (TextUtils.equals(this.id, id)) {
-            articleCharModel.reset();
-            articleParagraphModel.reset();
-        }
+        articleCharModel.reset();
+        articleParagraphModel.reset();
 
         this.id = id;
     }
@@ -43,7 +45,9 @@ public class ArticleParser {
         if (null == _instance) {
             _instance = new ArticleParser(id);
         } else {
-            _instance.reset(id);
+            if (!TextUtils.equals(id, _instance.id)) {
+                _instance.reset(id);
+            }
         }
         return _instance;
     }
