@@ -2,6 +2,7 @@ package com.github.funyoung.text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by yangfeng on 16-10-20.
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class ArticleParagraphModel {
     private final List<ParagraphNode> paragraphNodeList = new ArrayList<>();
+    private final Random random = new Random();
 
     public void add(ParagraphNode paragraphNode) {
         paragraphNodeList.add(paragraphNode);
@@ -38,6 +40,7 @@ public class ArticleParagraphModel {
     }
     public static class ParagraphNode {
         private final List<SentenceNode> sentenceNodeList = new ArrayList<>();
+        private final Random random = new Random();
         public String toString() {
             StringBuffer buffer = new StringBuffer();
             for (SentenceNode sentence : sentenceNodeList) {
@@ -63,6 +66,15 @@ public class ArticleParagraphModel {
         public void add(SentenceNode sentenceNode) {
             sentenceNodeList.add(sentenceNode);
         }
+
+        public String randomSentence() {
+            if (sentenceNodeList.isEmpty()) {
+                return "";
+            }
+
+            int index = random.nextInt(sentenceNodeList.size());
+            return sentenceNodeList.get(index).toString();
+        }
     }
 
     public String toString() {
@@ -86,5 +98,14 @@ public class ArticleParagraphModel {
             paragraphNode.reset();
         }
         paragraphNodeList.clear();
+    }
+
+    public String randomSentence() {
+        if (paragraphNodeList.isEmpty()) {
+            return "";
+        }
+
+        int index = random.nextInt(paragraphNodeList.size());
+        return paragraphNodeList.get(index).randomSentence();
     }
 }

@@ -104,4 +104,8 @@ public class ArticleParser {
         }
         articleParagraphModel.add(paragraphNode);
     }
+
+    public ArticleParagraphModel getParagraphModel() {
+        return articleParagraphModel;
+    }
 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.github.funyoung.looker.R;
 import com.github.funyoung.looker.util.TimeUtil;
 import com.github.funyoung.looker.util.ToastUtil;
-import com.github.funyoung.text.ArticleCharModel;
+import com.github.funyoung.text.ArticleParagraphModel;
 import com.github.funyoung.text.ArticleParser;
 
 /**
@@ -27,6 +27,7 @@ public class LockerActivity extends Activity {
      */
     public static boolean isLocked = false;
 
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +65,23 @@ public class LockerActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        displayLearningText();
+
+        textView = (TextView)findViewById(R.id.prompt_text);
     }
 
     private void displayLearningText() {
-        TextView textView = (TextView)findViewById(R.id.prompt_text);
         if (null != textView) {
-            ArticleCharModel model = ArticleParser.getInstance().getArticleCharModel();
-            textView.setText(model.indexInfo());
+//            ArticleCharModel model = ArticleParser.getInstance().getArticleCharModel();
+//            textView.setText(model.indexInfo());
+            ArticleParagraphModel model = ArticleParser.getInstance().getParagraphModel();
+            textView.setText(model.randomSentence());
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayLearningText();
     }
 
     @Override
